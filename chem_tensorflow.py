@@ -238,7 +238,7 @@ class ChemModel(object):
         log_to_save = []
         total_time_start = time.time()
         with self.graph.as_default():
-            if self.args.get('--restore') is not None:
+            if self.args.get('--restore') is not None:  # Training start from stored model.
                 _, valid_accs, _, _ = self.run_epoch("Resumed (validation)", self.valid_data, False)
                 best_val_acc = np.sum(valid_accs)
                 best_val_acc_epoch = 0
